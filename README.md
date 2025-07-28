@@ -1,9 +1,8 @@
 [![Pull Requests][pr-shield]][pr-url] [![issues][issue-shield]][issue-url]
 # 🔥코딩 테스트 스터디🔥
-- 매 주  [5문제](https://github.com/goorm-5th/Algorithm/issues)를 풀고, **✔매 일 17:40** 까지 [코드 리뷰](https://github.com/goorm-5th/Algorithm/pulls)를 진행합니다.
+- 매 주  [5문제 이상](https://github.com/goorm-5th/Algorithm/issues)를 풀고, **✔매 일 17:40** 까지 [코드 리뷰](https://github.com/goorm-5th/Algorithm/pulls)를 진행합니다.
   - 문제는 각자 원하는 문제 1개 [백준](https://www.acmicpc.net/problem/tags)에서 보충합니다.
   - **2시간 동안 1\~2문제**를 풀이하며, 주로 [Solved.ac](https://solved.ac/problems/level)기준 실버에서 골드난이도의  **코딩테스트 문제**나 기업**코딩테스트 문제**를 풀이합니다.
-    - 문제는 미리 풀어보는 것을 방지하기 위해, 당일에 공개합니다.
   - 문제 풀이 이후 간단히 풀이와 느낌을 공유합니다.
 
 ## 주차별 알고리즘 주제
