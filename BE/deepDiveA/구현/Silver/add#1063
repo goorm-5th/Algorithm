@@ -1,0 +1,80 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+    private final static String width = "!ABCDEFGH";
+    private final static int X = 1;
+    private final static int Y = 0;
+
+    public static void main(String[] args) throws IOException {
+        
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        String[] input = br.readLine().split(" ");
+        String kingInput = input[0];
+        String stoneInput = input[1];
+        int n = Integer.parseInt(input[2]);
+
+        int[] king = {kingInput.charAt(1) - '0', width.indexOf(kingInput.charAt(0))};
+        int[] stone = {stoneInput.charAt(1) - '0', width.indexOf(stoneInput.charAt(0))};
+
+        String[] commands = new String[n];
+
+        for (int i = 0; i < n; i++) {
+            commands[i] = br.readLine();
+        }
+
+        solution(king, stone, commands);
+    }
+
+    public static void solution(int[] king, int[] stone, String[] Command){
+        for(String cmd : Command){
+            int[] kTmp = new int[2];
+            int[] sTmp = new int[2];
+
+            kTmp[X] = king[X];
+            kTmp[Y] = king[Y];
+
+            sTmp[X] = stone[X];
+            sTmp[Y] = stone[Y];
+
+            move(king, cmd);
+
+            if(king[X] == stone[X] && king[Y] == stone[Y]){
+                move(stone, cmd);
+
+                if(sTmp[X] == stone[X] && sTmp[Y] == stone[Y]){
+                    king[X] = kTmp[X];
+                    king[Y] = kTmp[Y];
+                }
+            }
+        }
+
+        System.out.println(width.charAt(king[X]) + "" + king[Y]);
+        System.out.println(width.charAt(stone[X]) + "" + stone[Y]);
+    }
+
+    public static void move(int[] oj, String cmd){
+        if (cmd.equals("R") && oj[X] < 8) oj[X]++;
+        else if (cmd.equals("L") && oj[X] > 1) oj[X]--;
+        else if (cmd.equals("B") && oj[Y] > 1) oj[Y]--;
+        else if (cmd.equals("T") && oj[Y] < 8) oj[Y]++;
+        else if (cmd.equals("RT") && oj[X] < 8 && oj[Y] < 8) {
+            oj[X]++;
+            oj[Y]++;
+        }
+        else if (cmd.equals("LT") && oj[X] > 1 && oj[Y] < 8) {
+            oj[X]--;
+            oj[Y]++;
+        }
+        else if (cmd.equals("RB") && oj[X] < 8 && oj[Y] > 1) {
+            oj[X]++;
+            oj[Y]--;
+        }
+        else if (cmd.equals("LB") && oj[X] > 1 && oj[Y] > 1) {
+            oj[X]--;
+            oj[Y]--;
+        }
+    }
+}
